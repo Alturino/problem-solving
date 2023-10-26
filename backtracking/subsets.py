@@ -9,7 +9,6 @@ class Solution:
             if start >= len(nums):
                 res.append(subset.copy())
                 return
-
             subset.append(nums[start])
             subsets(start + 1)
             subset.pop()
