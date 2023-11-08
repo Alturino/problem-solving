@@ -2,12 +2,12 @@ from typing import List
 
 
 class Solution:
-    def permutate(self, nums:List[int]) -> List[List[int]]:
+    def permutate(self, nums: List[int]) -> List[List[int]]:
         res = []
 
         if len(nums) == 1:
-            return [nums[:]] # deep copy of the nums
-        
+            return [nums[:]]  # deep copy of the nums
+
         for i in range(len(nums)):
             n = nums.pop(0)
 
@@ -19,5 +19,6 @@ class Solution:
             nums.append(n)
         return res
 
+
 s = Solution()
-print(s.permutate([1,2,3]))
+print(s.permutate([1, 2, 3]))

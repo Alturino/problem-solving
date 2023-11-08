@@ -5,7 +5,7 @@ class Solution:
     #     if n < 0:
     #         return 0
     #     return self.climbingStairs(n - 1) + self.climbingStairs(n - 2)
-    
+
     # def climbingStairs(self, n: int) -> int:
     #     memo = [-1] * (n + 1)
     #     def climbingStairs(n: int, memo: List[int]) -> int:
@@ -45,11 +45,12 @@ class Solution:
     # Optimal solution
     def climbingStairs(self, n: int) -> int:
         one, two = 1, 1
-        for i in range(n - 1): 
+        for i in range(n - 1):
             temp = one
             one = one + two
             two = temp
         return one
+
 
 s = Solution()
 print(s.climbingStairs(100))

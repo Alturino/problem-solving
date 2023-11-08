@@ -6,4 +6,5 @@ def towerOfHanoi(n, fromRod, auxRod, toRod):
     print("Move disk", n, "from rod", fromRod, "to rod ", toRod)
     towerOfHanoi(n - 1, auxRod, fromRod, toRod)
 
+
 towerOfHanoi(3, "a", "b", "c")

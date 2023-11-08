@@ -2,23 +2,25 @@ from typing import Optional
 
 
 class TreeNode:
-    def __init__(self, val:int = 0, left=None, right=None) -> None:
+    def __init__(self, val: int = 0, left=None, right=None) -> None:
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return None
-        
+
         root.left, root.right = root.right, root.left
-        
+
         self.invertTree(root.left)
         self.invertTree(root.right)
 
         return root
 
+
 s = Solution()
-t = TreeNode(2, left=TreeNode(1), right = TreeNode(3))
+t = TreeNode(2, left=TreeNode(1), right=TreeNode(3))
 print(s.invertTree(root=t))

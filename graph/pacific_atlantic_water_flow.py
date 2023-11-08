@@ -5,11 +5,18 @@ class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         rows, cols = len(heights), len(heights[0])
         pac, atl = set(), set()
-        
+
         def dfs(r: int, c: int, visited: Set[tuple[int, int]], prevHeight: int):
-            if (r, c) in visited or r < 0 or r == rows or c < 0 or c == cols or heights[r][c] < prevHeight:
+            if (
+                (r, c) in visited
+                or r < 0
+                or r == rows
+                or c < 0
+                or c == cols
+                or heights[r][c] < prevHeight
+            ):
                 return
-            
+
             if heights[r][c] >= prevHeight:
                 visited.add((r, c))
 

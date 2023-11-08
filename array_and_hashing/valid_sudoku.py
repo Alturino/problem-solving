@@ -1,6 +1,7 @@
 import collections
 from typing import List
 
+
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         row = collections.defaultdict(set)
