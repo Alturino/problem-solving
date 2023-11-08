@@ -1,8 +1,10 @@
 from typing import List
+
+
 class Solution:
     # # Recursive
     # def minCostClimbingStairs(self, costs: List[int]) -> int:
-    #     def minCostClimbingStairs(costs: List[int], curr: int) -> int: 
+    #     def minCostClimbingStairs(costs: List[int], curr: int) -> int:
     #         if curr >= len(costs) or curr < 0:
     #             return 0
     #         if curr <= 1:
@@ -15,7 +17,7 @@ class Solution:
     # # Recursive with memoization
     # def minCostClimbingStairs(self, costs: List[int]) -> int:
     #     memo= {}
-    #     def minCostClimbingStairs(costs: List[int], curr: int, memo) -> int: 
+    #     def minCostClimbingStairs(costs: List[int], curr: int, memo) -> int:
     #         if curr >= len(costs) or curr < 0:
     #             memo[curr] = 0
     #             return memo[curr]
@@ -46,6 +48,6 @@ class Solution:
             one = costs[i]
         return min(costs[0], costs[1])
 
+
 s = Solution()
 print(s.minCostClimbingStairs([10, 15, 20]))
-

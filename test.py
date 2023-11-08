@@ -12,10 +12,16 @@
 #     return find_ways(n - 1, m) + find_ways(n, m - 1)
 # print(find_ways(3, 3))
 
-def count_partitions(n: int, m: int) -> int:
-    if n == 0:
-        return 1
-    if m == 0 or n < 0:
-        return 0
-    return count_partitions(n - m, m) + count_partitions(n, m - 1)
-print(count_partitions(9, 5))
+# def count_partitions(n: int, m: int) -> int:
+#     if n == 0:
+#         return 1
+#     if m == 0 or n < 0:
+#         return 0
+#     return count_partitions(n - m, m) + count_partitions(n, m - 1)
+# print(count_partitions(9, 5))
+
+from typing import List, Tuple
+
+
+def partitionDumbellWeight(weights: List[int]) -> List[Tuple[int]]:
+    
