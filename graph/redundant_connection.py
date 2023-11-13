@@ -45,12 +45,16 @@ class Solution:
         def union(n1: int, n2: int) -> bool:
             p1, p2 = find(n1), find(n2)
 
+            # can't complete because p1 and p2 is already connected
             if p1 == p2:
                 return False
 
+            # if rank[p1] is greater than rank[p2]
+            # then p1 is the parent of p2
             if rank[p1] > rank[p2]:
                 parent[p2] = p1
                 rank[p1] += rank[p2]
+            # otherwise p2 is the parent of p1
             else:
                 parent[p1] = p2
                 rank[p2] += rank[p1]
