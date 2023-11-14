@@ -15,7 +15,7 @@ class Solution:
             if (
                 min(row, col) < 0
                 or row >= rows
-                or col >= rows
+                or col >= cols
                 or board[row][col] != word[currWordIndex]
                 or (row, col) in visited
             ):
@@ -37,7 +37,7 @@ class Solution:
 
         for row in range(rows):
             for col in range(cols):
-                if exist(col, row, 0):
+                if exist(row, col, 0):
                     return True
 
         return False
