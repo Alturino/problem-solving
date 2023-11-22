@@ -17,23 +17,46 @@ class Solution:
     #     permutate(0)
     #     return res
 
-    def permutate(self, nums: List[int]) -> List[List[int]]:
+    # def permutate(self, nums: List[int]) -> List[List[int]]:
+    #     res = []
+    #
+    #     if len(nums) == 1:
+    #         return [nums[:]]  # deep copy of the nums
+    #
+    #     for i in range(len(nums)):
+    #         n = nums.pop(0)
+    #
+    #         permutations = self.permutate(nums)
+    #
+    #         for permutation in permutations:
+    #             permutation.append(n)
+    #         res.extend(permutations)
+    #         nums.append(n)
+    #     return res
+
+    def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
+        # use set to optimize the checking of item is already in permutation or not
+        # permutation = set()
+        permutation = []
 
-        if len(nums) == 1:
-            return [nums[:]]  # deep copy of the nums
+        def permute():
+            if len(permutation) == len(nums):
+                res.append(permutation.copy())
+                return
 
-        for i in range(len(nums)):
-            n = nums.pop(0)
+            for i in range(len(nums)):
+                if nums[i] in permutation:
+                    continue
 
-            permutations = self.permutate(nums)
+                # permutation.add(nums[i])
+                permutation.append(nums[i])
+                permute()
+                permutation.pop()
 
-            for permutation in permutations:
-                permutation.append(n)
-            res.extend(permutations)
-            nums.append(n)
+        permute()
         return res
 
 
 s = Solution()
-print(s.permutate([1, 2, 3]))
+print(s.permute([1, 2, 3]))
