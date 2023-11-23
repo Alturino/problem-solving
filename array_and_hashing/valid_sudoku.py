@@ -4,22 +4,37 @@ from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        row = collections.defaultdict(set)
-        col = collections.defaultdict(set)
+        rows = collections.defaultdict(set)
+        cols = collections.defaultdict(set)
         squares = collections.defaultdict(set)
 
-        for i in range(9):
-            for j in range(9):
-                if board[i][j] == ".":
+        for row in range(9):
+            for col in range(9):
+                if board[row][col] == ".":
                     continue
                 if (
-                    board[i][j] in row[i]
-                    or board[i][j] in col[j]
-                    or board[i][j] in squares[(i // 3, j // 3)]
+                    board[row][col] in rows[row]
+                    or board[row][col] in cols[col]
+                    or board[row][col] in squares[(row // 3, col // 3)]
                 ):
                     return False
 
-                row[i].add(board[i][j])
-                col[j].add(board[i][j])
-                squares[(i // 3, j // 3)].add(board[i][j])
+                rows[row].add(board[row][col])
+                cols[col].add(board[row][col])
+                squares[(row // 3, col // 3)].add(board[row][col])
         return True
+
+
+s = Solution()
+board = [
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+]
+print(s.isValidSudoku(board))
