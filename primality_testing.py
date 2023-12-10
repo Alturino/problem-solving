@@ -42,19 +42,31 @@ def generatePrimeIterative(n: int) -> List[int]:
 #     return res
 
 
+# def sieveOfEratosthenes(n: int) -> List[int]:
+#     notPrime = set()
+#     res = []
+#     for i in range(2, n + 1):
+#         if i not in notPrime:
+#             res.append(i)
+#             j = i * i
+#             while j <= n:
+#                 notPrime.add(j)
+#                 j += i
+#     return res
+
+
 def sieveOfEratosthenes(n: int) -> List[int]:
     notPrime = set()
     res = []
     for i in range(2, n + 1):
         if i not in notPrime:
             res.append(i)
-            for j in range(i * i, n + 1):
+            for j in range(i * i, n + 1, i):
                 notPrime.add(j)
-                j += i
     return res
 
 
-input = 10000
+input = 100
 a = generatePrimeIterative(input)
 b = sieveOfEratosthenes(input)
 print(b)
