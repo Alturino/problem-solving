@@ -1,4 +1,3 @@
-import collections
 from typing import Optional
 
 
@@ -55,6 +54,19 @@ print(
                 val=4,
                 left=TreeNode(val=3),
                 right=TreeNode(val=6),
+            ),
+        )
+    )
+)
+print(
+    s.isValidBST(
+        root=TreeNode(
+            val=5,
+            left=TreeNode(val=3),
+            right=TreeNode(
+                val=7,
+                left=TreeNode(val=4),
+                right=TreeNode(val=8),
             ),
         )
     )
