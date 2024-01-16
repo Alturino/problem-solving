@@ -1,40 +1,38 @@
-from typing import List, Set
+from typing import List, Set, Tuple
 
 
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         rows, cols = len(heights), len(heights[0])
-        pac, atl = set(), set()
+        pacific, atlantic = set(), set()
 
-        def dfs(r: int, c: int, visited: Set[tuple[int, int]], prevHeight: int):
+        def dfs(row: int, col: int, visited: Set[Tuple[int, int]], prevHeight: int):
             if (
-                (r, c) in visited
-                or r < 0
-                or r == rows
-                or c < 0
-                or c == cols
-                or heights[r][c] < prevHeight
+                (row, col) in visited
+                or row not in range(0, rows)
+                or col not in range(0, cols)
+                or heights[row][col] < prevHeight
             ):
                 return
 
-            visited.add((r, c))
+            visited.add((row, col))
 
-            dfs(r + 1, c, visited, heights[r][c])
-            dfs(r - 1, c, visited, heights[r][c])
-            dfs(r, c + 1, visited, heights[r][c])
-            dfs(r, c - 1, visited, heights[r][c])
+            dfs(row + 1, col, visited, heights[row][col])
+            dfs(row - 1, col, visited, heights[row][col])
+            dfs(row, col + 1, visited, heights[row][col])
+            dfs(row, col - 1, visited, heights[row][col])
 
-        for c in range(cols):
-            dfs(0, c, pac, heights[0][c])
-            dfs(rows - 1, c, atl, heights[rows - 1][c])
+        for col in range(cols):
+            dfs(0, col, pacific, heights[0][col])
+            dfs(rows - 1, col, atlantic, heights[rows - 1][col])
 
-        for r in range(rows):
-            dfs(r, 0, pac, heights[r][0])
-            dfs(r, cols - 1, atl, heights[r][cols - 1])
+        for row in range(rows):
+            dfs(row, 0, pacific, heights[row][0])
+            dfs(row, cols - 1, atlantic, heights[row][cols - 1])
 
         res = []
-        for r in range(rows):
-            for c in range(cols):
-                if (r, c) in pac and (r, c) in atl:
-                    res.append([r, c])
+        for row in range(rows):
+            for col in range(cols):
+                if (row, col) in pacific and (row, col) in atlantic:
+                    res.append([row, col])
         return res
