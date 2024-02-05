@@ -35,32 +35,43 @@
 #     )
 # )
 
-# res = 3
-# exp = 2
-# for i in range(100):
-#     res += exp
-#     exp += 2
-# print(res)
+
+def deret(n: int = 100):
+    res = [3]
+    exp = [2]
+    for i in range(n):
+        res.append(res[i] + exp[i])
+        exp.append(exp[i] + 2)
+    print(res[n - 1])
+    print()
 
 
-def recursive_random_number_generator(n: int, seed: int = 1) -> int:
-    a = 1103
-    c = 1234
-    m = 1 << 31
-
-    prev = seed
-    res = 0
-    for i in range(1, n + 1):
-        res = ((a * prev) + c) % m
-        prev = res
-
-    return res
+deret()
 
 
-print(recursive_random_number_generator(100))
-print()
+# def recursive_random_number_generator(n: int, seed: int = 1) -> int:
+#     a = 1103
+#     c = 1234
+#     m = 1 << 31
+#
+#     prev = seed
+#     res = 0
+#     for i in range(100):
+#         res = ((a * prev) + c) % m
+#         prev = res
+#
+#     return res
+#
+#
+# print(recursive_random_number_generator(100))
+# print()
+
 
 # number = 5
 # for i in range(10):
 #     number *= 2
 # print(number)
+# print()
+
+# print(bin(13))
+# print()

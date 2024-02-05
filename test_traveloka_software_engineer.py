@@ -18,15 +18,16 @@
 # 	- $keyTimes$ is sorted in ascending order of $keyTimes[i][1]$
 
 from typing import List
+import collections
 
 
-def slowestKey(keyTimes: List[List[int]]) -> str:
-    return "0"
-
-
-print(slowestKey(keyTimes=[[0, 2], [1, 3], [0, 7]]))  # expected = 'a'
-print(slowestKey(keyTimes=[[0, 1], [0, 3], [4, 5], [5, 6], [4, 10]]))  # expected = 'e'
-print()
+# def slowestKey(keyTimes: List[List[int]]) -> str:
+#     return "0"
+#
+#
+# print(slowestKey(keyTimes=[[0, 2], [1, 3], [0, 7]]))  # expected = 'a'
+# print(slowestKey(keyTimes=[[0, 1], [0, 3], [4, 5], [5, 6], [4, 10]]))  # expected = 'e'
+# print()
 
 
 # 2. The Jungle Book
@@ -55,14 +56,31 @@ print()
 # 	- $predators[i] \neq i$
 
 
-def minimumGroups(predators: List[int]) -> int:
-    return 0
-
-
-print(minimumGroups(predators=[-1, 8, 6, 0, 7, 3, 8, 9, -1, 6]))  # expected = 5
-print(minimumGroups(predators=[-1, 0, 1]))  # expected = 3
-print(minimumGroups(predators=[1, -1, 3, -1]))  # expected = 2
-print()
+# def minimumGroups(predators: List[int]) -> int:
+#     adjList = collections.defaultdict(list)
+#     for i, predator in enumerate(predators):
+#         adjList[predator].append(i)
+#
+#     groups = []
+#     q = collections.deque(adjList[-1])
+#     while q:
+#         group = []
+#         for i in range(len(q)):
+#             node = q.popleft()
+#             group.append(node)
+#             if node in adjList:
+#                 children = adjList[node]
+#                 for child in children:
+#                     q.append(child)
+#         groups.append(group.copy())
+#
+#     return len(groups)
+#
+#
+# print(minimumGroups(predators=[-1, 8, 6, 0, 7, 3, 8, 9, -1, 6]) == 5)  # expected = 5
+# print(minimumGroups(predators=[-1, 0, 1]) == 3)  # expected = 3
+# print(minimumGroups(predators=[1, -1, 3, -1]) == 2)  # expected = 2
+# print()
 
 # 3. Ways to Sum
 # - An automated packaging system is responsible for packing boxes. A box is certified to hold a certain weight. Given an integer total, calculate the number of possible ways to achieve total as a sum of the weights of items weighing integer weights from 1 to k, inclusive.
@@ -86,11 +104,40 @@ print()
 # 	- $1 ≤ k ≤ 100$
 
 
-def ways(total: int, k: int) -> int:
-    return 0
+# def ways(total: int, k: int) -> int:
+#     res = []
+#     curr = []
+#
+#     def backtrack(n: int, k: int):
+#         if n == 0:
+#             res.append(curr.copy())
+#             return
+#
+#         if n < 0 or k <= 0:
+#             return
+#
+#         curr.append(k)
+#         backtrack(n - k, k)
+#         curr.pop()
+#         backtrack(n, k - 1)
+#
+#     backtrack(total, k)
+#     return len(res)
 
 
-print(ways(total=8, k=2))  # expected = 5
-print(ways(total=5, k=3))  # expected = 5
-print(ways(total=4, k=2))  # expected = 3
-print()
+# def ways(total: int, k: int) -> int:
+#     dp = [0] * (total + 1)
+#     dp[0] = 1
+#     for i in range(1, k + 1):
+#         for j in range(1, total + 1):
+#             if j >= i:
+#                 dp[j] += dp[j - i]
+#     return dp[total]
+
+# def ways()
+#
+#
+# # print(ways(total=8, k=2))  # expected = 5
+# # print(ways(total=5, k=3))  # expected = 5
+# print(ways(total=4, k=2))  # expected = 3 [1,1,1,1], [1,1,2], [2,2]
+# print()
