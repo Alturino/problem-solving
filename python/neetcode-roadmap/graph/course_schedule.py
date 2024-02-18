@@ -4,6 +4,7 @@ from typing import List
 
 # DFS
 class Solution:
+    # DFS
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         courseToPrerequisites = {i: [] for i in range(numCourses)}
         for course, prerequisite in prerequisites:
@@ -31,3 +32,28 @@ class Solution:
                 return False
 
         return True
+
+    # # BFS
+    # def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+    #     courseToPrerequisites = {i: [] for i in range(numCourses)}
+    #     indegree = [0] * numCourses
+    #     for course, prerequisite in prerequisites:
+    #         courseToPrerequisites[course].append(prerequisite)
+    #         indegree[prerequisite] += 1
+    #
+    #     q = deque()
+    #     for i in range(numCourses):
+    #         if indegree[i] == 0:
+    #             q.append(i)
+    #
+    #     visited = 0
+    #     while q:
+    #         course = q.popleft()
+    #         visited += 1
+    #
+    #         for prerequisite in courseToPrerequisites[course]:
+    #             indegree[prerequisite] -= 1
+    #             if indegree[prerequisite] == 0:
+    #                 q.append(prerequisite)
+    #
+    #     return numCourses == visited

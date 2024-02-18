@@ -46,9 +46,12 @@ def deret(n: int = 100):
     print()
 
 
+<<<<<<< Updated upstream:test.py
 deret()
 
 
+=======
+>>>>>>> Stashed changes:python/test.py
 # def recursive_random_number_generator(n: int, seed: int = 1) -> int:
 #     a = 1103
 #     c = 1234
@@ -56,7 +59,11 @@ deret()
 #
 #     prev = seed
 #     res = 0
+<<<<<<< Updated upstream:test.py
 #     for i in range(100):
+=======
+#     for i in range(1, n + 1):
+>>>>>>> Stashed changes:python/test.py
 #         res = ((a * prev) + c) % m
 #         prev = res
 #
@@ -65,7 +72,10 @@ deret()
 #
 # print(recursive_random_number_generator(100))
 # print()
+<<<<<<< Updated upstream:test.py
 
+=======
+>>>>>>> Stashed changes:python/test.py
 
 # number = 5
 # for i in range(10):
