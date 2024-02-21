@@ -21,13 +21,22 @@ from typing import List
 import collections
 
 
-# def slowestKey(keyTimes: List[List[int]]) -> str:
-#     return "0"
-#
-#
-# print(slowestKey(keyTimes=[[0, 2], [1, 3], [0, 7]]))  # expected = 'a'
-# print(slowestKey(keyTimes=[[0, 1], [0, 3], [4, 5], [5, 6], [4, 10]]))  # expected = 'e'
-# print()
+def slowestKey(keyTimes: List[List[int]]) -> str:
+    key, time = keyTimes[0][0], keyTimes[0][1]
+    for i in range(1, len(keyTimes)):
+        currTime = keyTimes[i][1] - keyTimes[i - 1][1]
+        if time < currTime:
+            key = keyTimes[i][0]
+            time = currTime
+        elif currTime == time:
+            key = max(key, keyTimes[i][0])
+
+    return chr(key + ord("a"))
+
+
+print(slowestKey(keyTimes=[[0, 2], [1, 3], [0, 7]]))  # expected = 'a'
+print(slowestKey(keyTimes=[[0, 1], [0, 3], [4, 5], [5, 6], [4, 10]]))  # expected = 'e'
+print()
 
 
 # 2. The Jungle Book
@@ -107,6 +116,7 @@ import collections
 # def ways(total: int, k: int) -> int:
 #     res = []
 #     curr = []
+#     m = {}
 #
 #     def backtrack(n: int, k: int):
 #         if n == 0:
@@ -125,6 +135,31 @@ import collections
 #     return len(res)
 
 
+# def ways(total: int, k: int, m={}) -> int:
+#     if total == 0:
+#         return 1
+#
+#     if total < 0 or k <= 0:
+#         return 0
+#
+#     return ways(total - k, k, m) + ways(total, k - 1, m)
+
+
+def ways(total: int, k: int, m={}) -> int:
+    if (total, k) in m:
+        return m[(total, k)]
+
+    if total == 0:
+        return 1
+
+    if total < 0 or k <= 0:
+        return 0
+
+    res = ways(total - k, k, m) + ways(total, k - 1, m)
+    m[(total, k)] = res
+    return res
+
+
 # def ways(total: int, k: int) -> int:
 #     dp = [0] * (total + 1)
 #     dp[0] = 1
@@ -134,10 +169,8 @@ import collections
 #                 dp[j] += dp[j - i]
 #     return dp[total]
 
-# def ways()
-#
-#
-# # print(ways(total=8, k=2))  # expected = 5
-# # print(ways(total=5, k=3))  # expected = 5
-# print(ways(total=4, k=2))  # expected = 3 [1,1,1,1], [1,1,2], [2,2]
-# print()
+
+print(ways(total=8, k=2))  # expected = 5
+print(ways(total=5, k=3))  # expected = 5
+print(ways(total=4, k=2))  # expected = 3 [1,1,1,1], [1,1,2], [2,2]
+print()
