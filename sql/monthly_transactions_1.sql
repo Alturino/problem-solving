@@ -1,5 +1,4 @@
 SELECT
-    to_char(trans_date, 'YYYY-MM') AS month,
     country,
     count(id) AS trans_count,
     sum(CASE WHEN state = 'approved' THEN 1 ELSE 0 END) AS approved_count,
