@@ -1,8 +1,6 @@
-package org.example.stack
+package org.example.neetcode_roadmap.stack
 
-import org.example.two_pointer.maxArea
 import kotlin.math.max
-import kotlin.math.min
 
 fun largestRectangleArea(heights: IntArray): Int {
     var res = 0

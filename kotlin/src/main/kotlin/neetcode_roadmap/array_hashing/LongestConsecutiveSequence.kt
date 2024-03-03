@@ -1,4 +1,4 @@
-package org.example.array_hashing
+package org.example.neetcode_roadmap.array_hashing
 
 import kotlin.math.max
 

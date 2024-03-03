@@ -1,7 +1,6 @@
-package org.example.stack
+package org.example.neetcode_roadmap.stack
 
 import java.util.Stack
-import kotlin.math.min
 
 class MinStack {
     private val st = Stack<Int>()

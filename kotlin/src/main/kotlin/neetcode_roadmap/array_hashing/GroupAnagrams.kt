@@ -1,4 +1,4 @@
-package org.example.array_hashing
+package org.example.neetcode_roadmap.array_hashing
 
 fun groupAnagrams(strs: Array<String>): List<List<String>> {
     val m = mutableMapOf<String, MutableList<String>>()

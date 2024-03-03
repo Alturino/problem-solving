@@ -1,4 +1,4 @@
-package org.example.two_pointer
+package org.example.neetcode_roadmap.two_pointer
 
 fun twoSum(numbers: IntArray, target: Int): IntArray {
     var left = 0

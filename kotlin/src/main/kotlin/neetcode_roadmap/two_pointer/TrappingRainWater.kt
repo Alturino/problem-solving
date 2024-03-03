@@ -1,7 +1,6 @@
-package org.example.two_pointer
+package org.example.neetcode_roadmap.two_pointer
 
 import kotlin.math.max
-import kotlin.math.min
 
 fun trap(height: IntArray): Int {
     var left = 0

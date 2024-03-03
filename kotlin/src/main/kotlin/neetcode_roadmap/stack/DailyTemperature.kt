@@ -1,4 +1,4 @@
-package org.example.stack
+package org.example.neetcode_roadmap.stack
 
 fun dailyTemperatures(temperatures: IntArray): IntArray {
     val st = mutableListOf<Pair<Int, Int>>() // index, temperature

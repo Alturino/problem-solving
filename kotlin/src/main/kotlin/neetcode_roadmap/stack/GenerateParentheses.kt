@@ -1,4 +1,4 @@
-package org.example.stack
+package org.example.neetcode_roadmap.stack
 
 fun generateParenthesis(n: Int): List<String> {
     val res = mutableListOf<String>()

@@ -1,4 +1,4 @@
-package org.example.stack
+package org.example.neetcode_roadmap.stack
 
 import java.util.Stack
 

@@ -1,4 +1,4 @@
-package org.example.array_hashing
+package org.example.neetcode_roadmap.array_hashing
 
 fun isValidSudoku(board: Array<CharArray>): Boolean {
     val rs = mutableMapOf<Int, MutableSet<Char>>()

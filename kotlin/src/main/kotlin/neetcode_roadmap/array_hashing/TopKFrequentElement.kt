@@ -1,4 +1,4 @@
-package org.example.array_hashing
+package org.example.neetcode_roadmap.array_hashing
 
 fun topKFrequent(nums: IntArray, k: Int): IntArray {
     val valueToCount = mutableMapOf<Int, Int>() // value -> count
