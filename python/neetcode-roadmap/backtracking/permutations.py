@@ -36,25 +36,25 @@ class Solution:
 
     def permute(self, nums: List[int]) -> List[List[int]]:
         res = []
-        # use set to optimize the checking of item is already in permutation or not
-        # permutation = set()
-        permutation = []
+        permutations = []
+        used = set()
 
-        def permute():
-            if len(permutation) == len(nums):
-                res.append(permutation.copy())
+        def backtracking(start: int = 0):
+            if len(permutations) == len(nums):
+                res.append(permutations.copy())
                 return
 
             for i in range(len(nums)):
-                if nums[i] in permutation:
-                    continue
+                if nums[i] not in used:
+                    used.add(nums[i])
+                    permutations.append(nums[i])
 
-                # permutation.add(nums[i])
-                permutation.append(nums[i])
-                permute()
-                permutation.pop()
+                    backtracking(i + 1)
 
-        permute()
+                    used.remove(nums[i])
+                    permutations.pop()
+
+        backtracking()
         return res
 
 

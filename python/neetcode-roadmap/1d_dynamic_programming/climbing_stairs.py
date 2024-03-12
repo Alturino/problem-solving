@@ -21,12 +21,12 @@ class Solution:
     #     return climbingStairs(n, memo)
 
     # def climbingStairs(self, n: int) -> int:
-    #     memo = [0] * (n + 1)
-    #     memo[0] = 1
-    #     memo[1] = 1
+    #     dp = [0] * (n + 1)
+    #     dp[0] = 1
+    #     dp[1] = 1
     #     for i in range(2, n + 1):
-    #         memo[i] = memo[i - 1] + memo[i - 2]
-    #     return memo[n]
+    #         dp[i] = dp[i - 1] + dp[i - 2]
+    #     return dp[n]
 
     # def climbingStairs(self, n: int) -> int:
     #     memo = {}
