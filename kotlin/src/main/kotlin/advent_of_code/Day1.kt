@@ -112,11 +112,11 @@ fun day1Part1(lines: List<String>): Int {
 //    return res
 //}
 
-fun day1Part2(lines: List<String>): Int{
-    return lines.sumOf {
-        it.firstNotNullOfOrNull {  }
-    }
-}
+//fun day1Part2(lines: List<String>): Int{
+//    return lines.sumOf {
+//        it.firstNotNullOfOrNull {  }
+//    }
+//}
 
 fun main() {
 //    val input = listOf("1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet")
