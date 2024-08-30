@@ -23,6 +23,7 @@ class Solution:
                     res = [left, right]
                     resLen = windowLen
 
+                # pop left
                 window[s[left]] -= 1
                 if s[left] in countT and window[s[left]] < countT[s[left]]:
                     have -= 1
