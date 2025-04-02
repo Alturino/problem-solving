@@ -22,14 +22,14 @@ class Solution:
 
         queue = deque([(src, 0, 0)])
         while queue:
-            vertex, stops, price = queue.popleft()
+            source, stops, price = queue.popleft()
             if stops > k:
                 continue
 
-            for vertex2, weight2 in adj[vertex]:
-                if price + weight2 < prices[vertex2]:
-                    prices[vertex2] = price + weight2
-                    queue.append((vertex2, stops + 1, price + weight2))
+            for neighbor, neighbor_price in adj[source]:
+                if price + neighbor_price < prices[neighbor]:
+                    prices[neighbor] = price + neighbor_price
+                    queue.append((neighbor, stops + 1, price + neighbor_price))
 
         return -1 if prices[destination] == float("inf") else prices[destination]
 
